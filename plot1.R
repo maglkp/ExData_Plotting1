@@ -4,7 +4,7 @@ download.file('https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_p
 # manually unpack the household_power_consumption.zip file
 
 # read all data
-powerDataAll <- read.csv('household_power_consumption.txt', sep=";", , na.strings="?", header=T)
+powerDataAll <- read.csv('household_power_consumption.txt', sep=";", na.strings="?", header=T)
 
 # format the Date and Time columns
 powerDataAll$DateTime <- strptime(paste(powerDataAll$Date, powerDataAll$Time, sep=" "), format="%d/%m/%Y %T")

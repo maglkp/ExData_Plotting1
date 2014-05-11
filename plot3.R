@@ -15,11 +15,13 @@ powerData <- powerDataAll[(powerDataAll$Date >= "2007-02-01" & powerDataAll$Date
 
 # generate and save the graph
 png(file = "plot3.png", width = 480, height = 480)
-plot(powerData$DateTime, 
-     powerData$Global_active_power, 
-     type="l", 
-     ylab="Global Active Power (kilowatts)", 
-     xlab="")
+with(powerData, plot(DateTime, Sub_metering_1, col="black", type="l", 
+     ylab="Energy sub metering", 
+     xlab=""))
+with(powerData, lines(DateTime, Sub_metering_2, col="red", type="l"))
+with(powerData, lines(DateTime, Sub_metering_3, col="blue", type="l"))
+legend("topright", lty=1, col = c("black", "red", "blue"),   
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.off()
 
 
